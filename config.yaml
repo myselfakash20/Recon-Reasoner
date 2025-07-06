@@ -1,0 +1,13 @@
+llm:
+  mode: "local"              # Options: local, openai, none
+  model: "llama3"
+  openai_key: ""
+recon:
+  max_depth: 3
+  include_subdomains: false
+  respect_robots: true
+  throttle_seconds: 1
+output:
+  format: "markdown"
+  directory: "./data/outputs"
+  gpt_analysis: true

@@ -1,0 +1,9 @@
+playwright
+requests
+typer
+markdown
+pyyaml
+openai
+beautifulsoup4
+rich
+pyfiglet
