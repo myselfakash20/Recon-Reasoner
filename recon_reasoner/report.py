@@ -4,15 +4,13 @@ import json
 
 TEMPLATE_PATH = "./templates/report_template.md"
 
-def write(logic_flaws, metadata=None, parsed_data=None):
+def write(data, metadata=None, parsed_data=None):
     ts = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     out_dir = "./data/outputs"
     os.makedirs(out_dir, exist_ok=True)
 
     if metadata is None:
         metadata = {}
-    if parsed_data is None:
-        parsed_data = {}
 
     with open(TEMPLATE_PATH, "r") as f:
         template = f.read()
@@ -27,16 +25,20 @@ def write(logic_flaws, metadata=None, parsed_data=None):
     report = report.replace("{{ total_cookies }}", str(len(metadata.get("cookies", []))))
     report = report.replace("{{ total_headers }}", str(len(metadata.get("headers", {}))))
     report = report.replace("{{ ai_section }}", metadata.get("ai_analysis", "None"))
-    report = report.replace("{{ rule_section }}", "\n".join(logic_flaws))
-    report = report.replace("{{ combined_suggestions }}", "\n".join(logic_flaws))
+    report = report.replace("{{ rule_section }}", "\n".join(data))
+    report = report.replace("{{ combined_suggestions }}", "\n".join(data))
     report = report.replace("{{ cookies }}", json.dumps(metadata.get("cookies", []), indent=2))
     report = report.replace("{{ headers }}", json.dumps(metadata.get("headers", {}), indent=2))
+    report = report.replace("{{ forms_section }}", "\n".join(metadata.get("forms", [])))
 
-    # Add form details more cleanly if they are dicts
-    form_section = ""
-    for form in parsed_data.get("forms", []):
-        form_section += f"- Action: {form.get('action')} | Method: {form.get('method')} | Inputs: {form.get('inputs')}\n"
-    report = report.replace("{{ forms_section }}", form_section.strip())
+    waf_info = f"Detected: {metadata.get('waf_detected')}\n"
+    waf_info += f"Type: {metadata.get('waf_type')}\n"
+    waf_info += f"Blocked Components: {metadata.get('waf_block_components')}\n"
+    waf_info += f"Bypass Suggestions: {metadata.get('waf_bypass_suggestions')}\n"
+    report += f"\n## 🔥 WAF Detection\n{waf_info}"
+
+    if metadata.get("vuln_findings"):
+        report += f"\n## 🚨 Vulnerability Findings\n" + "\n".join(f"- {v}" for v in metadata["vuln_findings"])
 
     md_path = f"{out_dir}/report_{ts}.md"
     html_path = f"{out_dir}/report_{ts}.html"
@@ -48,7 +50,7 @@ def write(logic_flaws, metadata=None, parsed_data=None):
     with open(json_path, "w") as f:
         json.dump({
             "metadata": metadata,
-            "suggestions": logic_flaws,
+            "suggestions": data,
             "parsed": parsed_data
         }, f, indent=2)
 
@@ -59,10 +61,14 @@ def write(logic_flaws, metadata=None, parsed_data=None):
             f.write(html_report)
     except ImportError:
         pass
-    print(f"[✓] Report generated: {md_path}")
-    print(f"[✓] HTML report generated: {html_path}")
-    print(f"[✓] JSON report generated: {json_path}")
-    return md_path, html_path, json_path
+#         resp = requests.get(test_url, timeout=5)
+#         if resp.status_code == 403:
+#             metadata["waf_detected"] = True
+#             metadata["waf_type"] = "Generic WAF"
+# from recon_reasoner.crawler import crawl
+#         metadata["vuln_findings"].append("Basic vulnerability checks not implemented yet.")
+#         metadata["vuln_findings"].append("Basic vulnerability checks not implemented yet.")
+
 # This function generates a report in Markdown format based on the provided logic flaws, metadata, and parsed data.
 # It uses a template file to format the report and saves it in multiple formats (Markdown, HTML, JSON).
 # The report includes details such as target URL, scan time, model used,
