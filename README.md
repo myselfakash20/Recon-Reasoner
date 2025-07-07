@@ -22,6 +22,8 @@ Ideal for:
 - 🌐 Web app pentesters  
 
 ---
+![Recon Reasoner Banner](https://img.shields.io/badge/AI%20Recon-Automated-red?style=for-the-badge)
+
 
 ## 🔍 Features
 
@@ -56,6 +58,23 @@ Ideal for:
 - HTML (`.html`)
 - JSON (`.json`)
 
+| Feature | Description |
+|--------|-------------|
+| 🕷️ Smart Crawling | Uses Playwright to navigate and extract live data (URLs, forms, headers, cookies) |
+| 🧠 AI Logic Flaw Suggestions | Uses LLMs to provide logic flaw suggestions |
+| 🛡️ WAF Detection | Detects presence and type of WAFs, with blocked components and bypass tips |
+| 📊 Multi-format Reporting | Generates HTML, JSON, and Markdown reports |
+| 🧪 Basic Vulnerability Detection | Finds signs of XSS, SQLi, missing CSP headers, etc. |
+| 🌐 Subdomain Enumeration | Queries crt.sh for discovered subdomains |
+| 🧬 DOM-based XSS Scanner | JS-based payloads tested in real browser context |
+| 🎯 Active Parameter Fuzzing | Payload fuzzing on GET/POST params |
+| 🔐 Auth/Session Handling | Detects login forms, manages cookies/tokens, simulates login |
+| 🧠 Heuristic Learning | Adapts scanning/fuzzing based on server responses |
+| 📜 JavaScript Parsing | Parses inline/external JS for keys, URLs, secrets |
+| 📡 WAF Fingerprinting | Detects WAF vendor like Cloudflare, AWS WAF, etc. |
+| 🔁 Open Redirect Detection | Detects possible redirect-based vulnerabilities |
+| 📂 Directory Discovery | Looks for accessible hidden paths and tests fuzzing |
+
 ---
 
 ## ⚙️ Setup Instructions
@@ -63,7 +82,7 @@ Ideal for:
 ### 1. 📦 Install Dependencies
 
 ```bash
-git clone https://github.com/yourusername/recon-reasoner.git
+git clone https://github.com/myselfakash20/recon-reasoner.git
 cd recon-reasoner
 pip install -r requirements.txt
 playwright install
@@ -100,6 +119,13 @@ llm:
 ### 3. 🚀 Run the Tool
 
 ```bash
+ollama run llama3
+
+```
+```bash
+playwright run-server
+```
+```bash
 python3 main.py run https://example.com
 ```
 
@@ -112,14 +138,27 @@ You'll see output like:
 [~] Analyzing with AI model...
 [✓] Recon complete. Reports generated in /data/outputs/
 ```
-
 ---
 
-## 📄 Example Output
+## 📁 Output
 
-- `report.md`  
-- `report.json`  
-- `report.html`
+Reports are saved in `data/outputs/` with three formats:
+- `report_*.md`: Full markdown report
+- `report_*.html`: Styled HTML version
+- `report_*.json`: Machine-readable JSON for automation
+
+## 📜 Sample Report Sections
+
+- **AI-based logic flaw insight**
+- **Forms and input analysis**
+- **WAF detection report with bypass tips**
+- **JS/DOM interaction result**
+- **Heuristic and fuzzing-based vulnerabilities**
+
+## 📎 Example Logic Flaw Insight
+```
+Untrusted input in search field, no CSRF tokens found, tokenless POST endpoint, etc.
+```
 
 ---
 
@@ -147,11 +186,9 @@ You'll see output like:
 
 ## ⚠️ Disclaimer
 
-```
-This tool is built for educational and authorized testing purposes only.
-Do NOT use it against targets without proper permission. 
-The author is not responsible for misuse or damage caused.
-```
+> This tool is intended for educational and ethical hacking and authorized testing only. 
+> Do **not** use it against systems without explicit permission.
+
 
 ---
 
@@ -159,6 +196,15 @@ The author is not responsible for misuse or damage caused.
 
 - Built with ❤️ by [Akash](https://github.com/myselfakash20)
 - Inspired by bug bounty, logic flaws & AI-assisted recon
+
+---
+## 🪪 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🙌 Contribution
+
+PRs welcome! Let's build a smarter recon assistant for bug bounty hunters and red teamers.
 
 ---
 
