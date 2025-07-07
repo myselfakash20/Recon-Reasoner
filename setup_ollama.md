@@ -14,5 +14,5 @@ ollama run llama3
 
 4. Run Recon Reasoner:
 ```bash
-python cli.py --target https://example.com
+python main.py https://example.com
 ```
