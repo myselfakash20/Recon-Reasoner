@@ -1,219 +1,86 @@
 
-# 🛡️ Recon Reasoner
+![Banner](https://github.com/myselfakash20/myselfakash20/blob/main/Akash%20Ghosh%20%20%40myselfakash20.gif)
 
-> AI-powered reconnaissance & logic flaw discovery tool for bug bounty hunters, red teamers, and security researchers.
+<h1 align="center">Hi, I’m <code>Akash Ghosh</code> 👋</h1>
+<h3 align="center">🛡️ Ethical Hacker | 🐞 Bug Bounty Hunter | 🧠 Cybersecurity Researcher</h3>
 
----
-
-![Recon Reasoner Banner](https://img.shields.io/badge/Recon--Reasoner-AI%20powered%20recon-blueviolet?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.9%2B-yellow?style=for-the-badge&logo=python)
-![License](https://img.shields.io/github/license/myselfakash20/recon-reasoner?style=for-the-badge)
-
----
-
-## 🚀 What is Recon Reasoner?
-
-**Recon Reasoner** is a modular security tool that combines headless browser automation, rule-based static analysis, and LLM-driven logic flaw identification — giving you a hybrid approach to **automated recon** and **logic flaw detection**. 
-
-Ideal for:
-- 🐞 Bug bounty hunters  
-- 🔐 Security researchers  
-- 🕵️ Red teamers  
-- 🌐 Web app pentesters  
-
----
-![Recon Reasoner Banner](https://img.shields.io/badge/AI%20Recon-Automated-red?style=for-the-badge)
-
-
-## 🔍 Features
-
-### 🧠 AI-Powered Flaw Detection
-- Uses OpenAI or LLaMA 3 (via Ollama) to suggest **logic flaws**, **trust issues**, and **authentication problems** in recon data.
-- Configurable via `config.yaml`.
-
-### 🕷️ Automated Recon with Playwright
-- Headless browser-based recon to mimic real user interaction.
-- Extracts:
-  - DOM elements
-  - Forms
-  - Cookies
-  - Headers
-  - JS script sources
-  - Hidden endpoints
-
-### 🔎 Subdomain Enumeration
-- Uses [crt.sh](https://crt.sh/) to pull public subdomains via Certificate Transparency logs.
-
-### 🧪 Param Fuzzing (Prototype)
-- Injects basic test parameters like `?admin=true`, `?redirect=https://evil.com`, etc. *(expandable!)*
-
-### 🔒 Token & Auth Detection
-- Parses HTML & JS for:
-  - `csrf_token`, `auth_token`
-  - Suspicious `login/auth` JS logic
-  - Form methods & input names
-
-### 📊 Multi-format Report Generation
-- Markdown (`.md`)
-- HTML (`.html`)
-- JSON (`.json`)
-
-| Feature | Description |
-|--------|-------------|
-| 🕷️ Smart Crawling | Uses Playwright to navigate and extract live data (URLs, forms, headers, cookies) |
-| 🧠 AI Logic Flaw Suggestions | Uses LLMs to provide logic flaw suggestions |
-| 🛡️ WAF Detection | Detects presence and type of WAFs, with blocked components and bypass tips |
-| 📊 Multi-format Reporting | Generates HTML, JSON, and Markdown reports |
-| 🧪 Basic Vulnerability Detection | Finds signs of XSS, SQLi, missing CSP headers, etc. |
-| 🌐 Subdomain Enumeration | Queries crt.sh for discovered subdomains |
-| 🧬 DOM-based XSS Scanner | JS-based payloads tested in real browser context |
-| 🎯 Active Parameter Fuzzing | Payload fuzzing on GET/POST params |
-| 🔐 Auth/Session Handling | Detects login forms, manages cookies/tokens, simulates login |
-| 🧠 Heuristic Learning | Adapts scanning/fuzzing based on server responses |
-| 📜 JavaScript Parsing | Parses inline/external JS for keys, URLs, secrets |
-| 📡 WAF Fingerprinting | Detects WAF vendor like Cloudflare, AWS WAF, etc. |
-| 🔁 Open Redirect Detection | Detects possible redirect-based vulnerabilities |
-| 📂 Directory Discovery | Looks for accessible hidden paths and tests fuzzing |
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=myselfakash20&label=Profile+Views&color=blueviolet&style=flat-square" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=myselfakash20" />
+  <img src="https://img.shields.io/badge/Tracked_by-GitHub_Analytics-black?style=flat-square" />
+</p>
 
 ---
 
-## ⚙️ Setup Instructions
-
-### 1. 📦 Install Dependencies
+## 🧑‍💻 About Me
 
 ```bash
-git clone https://github.com/myselfakash20/recon-reasoner.git
-cd recon-reasoner
-pip install -r requirements.txt
-playwright install
+$ whoami
+> Cybersecurity enthusiast passionate about real-world hacking, bug hunting, and automation
+
+$ echo "Bug Bounties | Red Teaming | OSINT | Reverse Engineering"
+> 🔐 Featured in Halls of Fame - Google, Microsoft, and more
+> ⚙️ Built custom tools for automation & reconnaissance
+> ✍️ Blogs @ Medium | Talks @ Events | Always Learning
 ```
 
 ---
 
-### 2. 🤖 Setup LLM Engine
+## 💻 Tech & Tools I Use
 
-#### Option A: Use Ollama (local LLaMA 3)
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-ollama run llama3
-```
-
-Update `config.yaml`:
-```yaml
-llm:
-  mode: "local"
-  model: "llama3"
-```
-
-#### Option B: Use OpenAI GPT
-Update `config.yaml`:
-```yaml
-llm:
-  mode: "openai"
-  model: "gpt-4"
-  openai_key: "your-openai-key"
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3676AB?style=flat-square&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/Bash-000000?style=flat-square&logo=gnu-bash&logoColor=white" />
+  <img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white" />
+  <img src="https://img.shields.io/badge/Nmap-0040FF?style=flat-square&logo=nmap&logoColor=white" />
+  <img src="https://img.shields.io/badge/BurpSuite-F24E1E?style=flat-square&logo=burp-suite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square&logo=kali-linux&logoColor=white" />
+</p>
 
 ---
 
-### 3. 🚀 Run the Tool
+## 🚀 Featured Projects
 
-```bash
-ollama run llama3
+| Name | Description | Tech |
+|------|-------------|------|
+| 🔍 [ASEnumiration](https://github.com/myselfakash20/ASEnumiration) | Subdomain Enumeration Tool | Python, Bash |
+| 🔑 [GitHub Dorker](https://github.com/myselfakash20/Github_Dorker) | Finds exposed secrets via GitHub search | Go |
+| 🛡️ [Vulnerability Scanner](https://github.com/myselfakash20/vulnerability_scan) | Recon & Scan Automation | Bash |
+| 📡 [HTTP Headers Analysis](https://github.com/myselfakash20/http-headers-analysis) | Web Security Header Analyzer | Python |
+| 📶 [WiFi Bruteforce](https://github.com/myselfakash20/wifi-bruteforce) | Wireless handshake brute-force | Bash |
 
-```
-```bash
-playwright run-server
-```
-```bash
-python3 main.py run https://example.com
-```
-
-You'll see output like:
-
-```bash
-[+] Starting Recon Reasoner on: https://example.com
-[~] Crawling complete. Parsing data...
-[~] Suggesting logic flaws...
-[~] Analyzing with AI model...
-[✓] Recon complete. Reports generated in /data/outputs/
-```
----
-
-## 📁 Output
-
-Reports are saved in `data/outputs/` with three formats:
-- `report_*.md`: Full markdown report
-- `report_*.html`: Styled HTML version
-- `report_*.json`: Machine-readable JSON for automation
-
-## 📜 Sample Report Sections
-
-- **AI-based logic flaw insight**
-- **Forms and input analysis**
-- **WAF detection report with bypass tips**
-- **JS/DOM interaction result**
-- **Heuristic and fuzzing-based vulnerabilities**
-
-## 📎 Example Logic Flaw Insight
-```
-Untrusted input in search field, no CSRF tokens found, tokenless POST endpoint, etc.
-```
+📂 [Explore all repositories →](https://github.com/myselfakash20?tab=repositories)
 
 ---
 
-## 💡 Use Cases for Security Research
+## 🧠 GitHub Intelligence
 
-| Module         | What It Helps You Discover                                         |
-|----------------|---------------------------------------------------------------------|
-| `crawler.py`   | Hidden forms, exposed JS, link enumeration, cookies & headers       |
-| `parser.py`    | Token leaks, insecure form methods, auth-related JS functions       |
-| `suggester.py` | Missing CSRFs, client-side validation issues, logic flaws           |
-| `analyzer.py`  | Custom reasoning on logic errors using OpenAI / LLaMA               |
-| `report.py`    | Markdown/HTML reports for triage & writeups                         |
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=myselfakash20&show_icons=true&theme=radical" width="45%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=myselfakash20&theme=radical" width="45%" />
+</p>
 
 ---
 
-## 🧩 Roadmap
+## ✍️ Latest Blog Posts
 
-- [ ] Auth bypass tester
-- [ ] Param brute module
-- [ ] JS endpoint crawler
-- [ ] Plugin support
-- [ ] HTML UI for recon
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
 
----
-
-## ⚠️ Disclaimer
-
-> This tool is intended for educational and ethical hacking and authorized testing only. 
-> Do **not** use it against systems without explicit permission.
-
+📖 More on [Medium](https://medium.com/@myselfakash20)
 
 ---
 
-## 🙌 Credits
+## 🌐 Connect With Me
 
-- Built with ❤️ by [Akash](https://github.com/myselfakash20)
-- Inspired by bug bounty, logic flaws & AI-assisted recon
-
----
-## 🪪 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 🙌 Contribution
-
-PRs welcome! Let's build a smarter recon assistant for bug bounty hunters and red teamers.
+<p align="center">
+  <a href="https://vulnvault.online"><img src="https://img.shields.io/badge/Website-VulnVault-black?style=flat-square&logo=firefox&logoColor=white" /></a>
+  <a href="https://x.com/myselfakash20"><img src="https://img.shields.io/badge/X(Twitter)-1DA1F2?style=flat-square&logo=twitter&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/akash-ghosh-145bb61b5"><img src="https://img.shields.io/badge/LinkedIn-blue?style=flat-square&logo=linkedin&logoColor=white" /></a>
+  <a href="https://bugcrowd.com/myselfakash20"><img src="https://img.shields.io/badge/Bugcrowd-FF6600?style=flat-square&logo=bugcrowd&logoColor=white" /></a>
+</p>
 
 ---
 
-## 📫 Contact
-
-Need help or want to collaborate?  
-📧 Twitter: [@myselfakash20](https://twitter.com/myselfakash20)  
-📂 GitHub: [github.com/myselfakash20](https://github.com/myselfakash20)
-
----
-
-**Happy Hacking!** 🧠💥
+> 🧠 *“In hacking, there is no failure. Only learning.”*
